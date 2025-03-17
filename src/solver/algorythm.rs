@@ -260,9 +260,10 @@ pub fn ida_star(heuristic_table: &HashMap<Optimise_cube, u8>, cube: Cube, solved
         match search(&cube, &solved_cube, None, 0, threshold, heuristic_table, default_heuristic) {
             Ok(solution) => return Some(solution),
             Err(new_threshold) => {
-                if new_threshold == u8::MAX {
+                if new_threshold == 18 {
                     return None;
                 }
+                println!("New threshold: {}", new_threshold);
                 threshold = new_threshold;
             }
         }

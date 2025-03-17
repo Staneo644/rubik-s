@@ -12,11 +12,12 @@ pub fn create_reverse_file()
 {
     let random_cubes = Cube::generate_all_randoms_cube();
     println!("Random cubes generated, length: {}", random_cubes.len());
-    let heuristic_table = generate_heuristic_table_optimize(Cube::get_edges_default(), MAX_DEPTH_HEURISTIC);
     let mut random_cubes = Cube::generate_all_randoms_cube();
     if !random_cubes.is_empty() {
         random_cubes.remove(0);
     }
+
+    let heuristic_table = generate_heuristic_table_optimize(Cube::get_edges_default(), MAX_DEPTH_HEURISTIC);
     let mut file = File::create(&("./zbll-list/reverse-zbll.txt")).expect(
         "Failed to create file"
     );
